@@ -3,10 +3,11 @@ import type { NextPage } from "next";
 import { useRouter } from "next/router";
 import styles from "../styles/Home.module.css";
 import React, { useState } from 'react';
-import { Button, Flex, Input } from "@chakra-ui/react";
+import { Text, Button, Flex, Input } from "@chakra-ui/react";
 
 
 const Mint: NextPage = () => {
+  
   const router = useRouter();
   // Get the currently connected wallet's address
   const address = useAddress();
@@ -62,15 +63,18 @@ const Mint: NextPage = () => {
           Connect Wallet
         </button>
       ) : (
+        <>
+
+        <Text>Connected</Text>
+
         <button
           className={`${styles.mainButton} ${styles.spacerBottom}`}
           onClick={() => claimNft()}
         >
           Claim An NFT
         </button>
-      )}
 
-      <Flex align="center" justify="center">
+        <Flex align="center" justify="center">
            <Button
            backgroundColor="#D6517D"
            borderRadius="5px"
@@ -110,7 +114,11 @@ const Mint: NextPage = () => {
            >
            +
            </Button>
-      </Flex>     
+      </Flex>
+        </>
+      )}
+
+           
     </div>
   );
 };

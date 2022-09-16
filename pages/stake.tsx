@@ -37,6 +37,7 @@ const Stake: NextPage = () => {
   ///////////////////////////////////////////////////////////////////////////
   // Custom contract functions
   ///////////////////////////////////////////////////////////////////////////
+  
   const [stakedNfts, setStakedNfts] = useState<any[]>([]);
   const [claimableRewards, setClaimableRewards] = useState<BigNumber>();
 
