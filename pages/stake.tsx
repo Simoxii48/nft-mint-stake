@@ -14,6 +14,7 @@ import { useEffect, useState } from "react";
 import styles from "../styles/Home.module.css";
 
 
+
 const nftDropContractAddress = "0x72AA8E6804B58D21140aA550A11316167AF0f8a5";
 const tokenContractAddress = "0xf01756732E811a625f16F92465C8A395562d54a9";
 const stakingContractAddress = "0x46C9fa78532c902DfAfD385aAd93f29c2C674ad9";
@@ -143,6 +144,7 @@ const Stake: NextPage = () => {
                </p>
              </div>
            </div>
+        
 
            <button
             className={`${styles.mainButton} ${styles.spacerTop}`}
@@ -154,48 +156,56 @@ const Stake: NextPage = () => {
 
           <hr className={`${styles.divider} ${styles.spacerTop}`} />
 
-          <h2>Your Staked NFTs</h2>
-          <div className={styles.nftBoxGrid}>
-            {stakedNfts?.map((nft) => (
-              <div className={styles.nftBox} key={nft.metadata.id.toString()}>
-                <ThirdwebNftMedia
-                  metadata={nft.metadata}
-                  className={styles.nftMedia}
-                />
-                <h3>{nft.metadata.name}</h3>
-                <button
-                  className={`${styles.mainButton} ${styles.spacerBottom}`}
-                  onClick={() => withdraw(nft.metadata.id)}
-                >
-                  Withdraw
-                </button>
-              </div>
+            <h2>Your Staked NFTs</h2>
+            <div className={styles.nftBoxGrid} >
+              {stakedNfts?.map((nft) => (
+
+                <div className={styles.container2}>
+                  <div className={styles.nftBox} key={nft.metadata.id.toString()}> 
+                  <span></span>
+                    <ThirdwebNftMedia
+                      metadata={nft.metadata}
+                      className={styles.nftMedia}
+                    />
+                    <h3>{nft.metadata.name}</h3>
+                    <button
+                      className={`${styles.mainButton} ${styles.spacerBottom}`}
+                      onClick={() => withdraw(nft.metadata.id)}
+                    >
+                      Unstake
+                    </button>
+                  </div>
+                </div>
             ))}
           </div>
 
           <hr className={`${styles.divider} ${styles.spacerTop}`} />
 
           <h2>Your Unstaked NFTs</h2>
-
           <div className={styles.nftBoxGrid}>
             {ownedNfts?.map((nft) => (
-              <div className={styles.nftBox} key={nft.metadata.id.toString()}>
-                <ThirdwebNftMedia
-                  metadata={nft.metadata}
-                  className={styles.nftMedia}
-                />
-                <h3>{nft.metadata.name}</h3>
-                <button
-                  className={`${styles.mainButton} ${styles.spacerBottom}`}
-                  onClick={() => stakeNft(nft.metadata.id)}
-                >
-                  Stake
-                </button>
+
+              <div className={styles.container3}>
+                <div className={styles.nftBox} key={nft.metadata.id.toString()}>
+                <span></span>
+                  <ThirdwebNftMedia
+                    metadata={nft.metadata}
+                    className={styles.nftMedia}
+                  />
+                  <h3>{nft.metadata.name}</h3>
+                  <button
+                    className={`${styles.mainButton} ${styles.spacerBottom}`}
+                    onClick={() => stakeNft(nft.metadata.id)}
+                  >
+                    Stake
+                  </button>
+                </div>
               </div>
             ))}
           </div>
         </>
       )}
+      
     </div>
   );
 };

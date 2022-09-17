@@ -17,7 +17,6 @@
   font-size: 1.25rem;
   font-weight: 600;
   cursor: pointer;
-
   transition: background-color 300ms ease-in-out;
   transform-origin: center;
 }
@@ -36,17 +35,16 @@
 }
 
 .container {
-  margin-top: 90px;
+  margin-top: 40px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   width: 100%;
   position: absolute;
-  padding: 0 24px;
 }
 
-.container1 {
+.container1 { /* NFT MINT PAGE */
   margin-top: 90px;
   display: flex;
   flex-direction: column;
@@ -63,6 +61,26 @@
   border:1px solid rgba(255, 255, 255, 0.18);
   box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
   transition: 0.5s;
+}
+
+
+
+.container2 {
+  width: 256px;
+  display: flex;
+  flex-direction: row ;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.container3 {
+  width: 256px;
+  display: flex;
+  flex-direction: row ;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
 }
 
 .page {
@@ -184,9 +202,6 @@
   box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
   width: 95%;
   margin-top: 10px;
-  margin-bottom: 10px;
-  margin-left: 40px;
-  margin-right: 40px;
   min-height: 200px;
 }
 
@@ -406,17 +421,64 @@ font-size: 15px;
 }
 
 .nftBoxGrid {
+  position: relative;
   width: 1080px;
   height: 400px;
   max-width: 92vw;
   display: flex;
-  flex-direction: row;
+  flex-direction: row-reverse ;
   align-items: center;
   justify-content: center;
   gap: 4%;
-  margin-top: 30px;
+  margin: 40px 30px;
+  transition: 0.5s;
+  margin-top: 0px;
   flex-wrap: wrap;
 }
+
+/*
+.nftBoxGrid::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50px;
+  width: 50%;
+  height: 100%;
+  background: #fff;
+  border-radius: 8px;
+  transform: skewX(15deg);
+  transition: 0.5s;
+}
+
+.nftBoxGrid::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50px;
+  width: 100px;
+  height: 500px;
+  background: #fff;
+  border-radius: 8px;
+  transform: skewX(15deg);
+  transition: 0.5s;
+  filter: blur(30px);
+  transition: 0.5s;
+}
+
+.nftBoxGrid:hover:before,
+.nftBoxGrid:hover:after
+{
+  transform: skewX(0deg);
+  left: 20px;
+  width: calc(100% - 90px);
+}
+
+.nftBoxGrid:nth-child(1):before,
+.nftBoxGrid:nth-child(1):after 
+{
+  background: linear-gradient(315deg, #ffbc00, #ff0058);
+}
+*/
 
 .nftBox {
   background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
@@ -425,8 +487,9 @@ font-size: 15px;
   border-radius: 16px;
   border:1px solid rgba(255, 255, 255, 0.18);
   box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
-  width: 19%;
+  width: 100%;
   min-height: 200px;
+  z-index: 1;
 }
 
 .optionSelectBox {
