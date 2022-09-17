@@ -172,6 +172,30 @@
   opacity: 0.8;
 }
 
+.up {
+  align-items: center;
+  margin-bottom: 10px;
+  display: flex;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-radius: 16px;
+  border:1px solid rgba(255, 255, 255, 0.18);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+  width: 95%;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  margin-left: 40px;
+  margin-right: 40px;
+  min-height: 200px;
+}
+
+.tokenLabel {
+  align-items: center;
+  justify-content: center;
+  justify-items: center;
+}
+
 .box {
   width: 300px;
   height: 300px;

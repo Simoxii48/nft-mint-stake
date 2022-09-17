@@ -122,34 +122,35 @@ const Stake: NextPage = () => {
         </button>
       ) : (
         <>
-          <h2>Your Tokens</h2>
+          <div className={styles.up}>
+           <h2>Your Tokens</h2>
+           <div className={styles.tokenGrid}>
+             <div className={styles.tokenItem}>
+               <h3 className={styles.tokenLabel}>Claimable Rewards</h3>
+               <p className={styles.tokenValue}>
+                 <b>
+                   {!claimableRewards
+                     ? "Loading..."
+                     : ethers.utils.formatUnits(claimableRewards, 18)}
+                 </b>{" "}
+                 {tokenBalance?.symbol}
+               </p>
+              </div>
+             <div className={styles.tokenItem}>
+               <h3 className={styles.tokenLabel}>Current Balance</h3>
+               <p className={styles.tokenValue}>
+                 <b>{tokenBalance?.displayValue}</b> {tokenBalance?.symbol}
+               </p>
+             </div>
+           </div>
 
-          <div className={styles.tokenGrid}>
-            <div className={styles.tokenItem}>
-              <h3 className={styles.tokenLabel}>Claimable Rewards</h3>
-              <p className={styles.tokenValue}>
-                <b>
-                  {!claimableRewards
-                    ? "Loading..."
-                    : ethers.utils.formatUnits(claimableRewards, 18)}
-                </b>{" "}
-                {tokenBalance?.symbol}
-              </p>
-            </div>
-            <div className={styles.tokenItem}>
-              <h3 className={styles.tokenLabel}>Current Balance</h3>
-              <p className={styles.tokenValue}>
-                <b>{tokenBalance?.displayValue}</b> {tokenBalance?.symbol}
-              </p>
-            </div>
-          </div>
-
-          <button
+           <button
             className={`${styles.mainButton} ${styles.spacerTop}`}
             onClick={() => claimRewards()}
-          >
+           >
             Claim Rewards
-          </button>
+           </button>
+         </div>
 
           <hr className={`${styles.divider} ${styles.spacerTop}`} />
 
