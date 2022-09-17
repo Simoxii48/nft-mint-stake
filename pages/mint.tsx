@@ -4,6 +4,8 @@ import { useRouter } from "next/router";
 import styles from "../styles/Home.module.css";
 import React, { useState } from 'react';
 import { Text, Button, Flex, Input } from "@chakra-ui/react";
+import Image from "next/image";
+import img from '../public/logo.png';
 
 
 const Mint: NextPage = () => {
@@ -24,7 +26,7 @@ const Mint: NextPage = () => {
   );
 
   // handle decrement and increment Button + -
-  const [mintAmount, setMintAmount] = useState(1);
+  const [pricePerToken, setPricePerToken] = useState(1);
   const [inProgress, setInProgress] = useState(false);
   
   async function claimNft() {
@@ -45,13 +47,13 @@ const Mint: NextPage = () => {
     disconnectWallet();
   }
   const handleDecrement = () => {
-   if(mintAmount <= 1)return;
-   setMintAmount(mintAmount - 1);
+   if(pricePerToken <= 1)return;
+   setPricePerToken(pricePerToken - 1);
   }
 
   const handleIncrement = () => {
-    if(mintAmount >= 10)return;
-    setMintAmount(mintAmount + 1);
+    if(pricePerToken >= 10)return;
+    setPricePerToken(pricePerToken + 1);
    }
  
   return (
@@ -63,6 +65,13 @@ const Mint: NextPage = () => {
         one of the NFTs that we lazy minted.
       </p>
       <hr className={`${styles.smallDivider} ${styles.detailPageHr}`} />
+   
+      <div className={styles.box}>
+       
+       <img src="logo.png"/>
+
+      <span></span>
+      </div>
 
       {!address ? (
         <button
@@ -80,14 +89,12 @@ const Mint: NextPage = () => {
           DISCONNECT
         </Button>
 
-        <Text>Connected</Text>
-
-        <button
+        <Button
           className={`${styles.mainButton} ${styles.spacerBottom}`}
           onClick={() => claimNft()}
         >
           Mint Now
-        </button>
+        </Button>
 
         <Flex align="center" justify="center">
            <button
@@ -97,10 +104,10 @@ const Mint: NextPage = () => {
             -
            </button>
 
-           <input 
+           <Input 
            className={`${styles.mainButton0} ${styles.spacerBottom}`}
            type="number" 
-           value={mintAmount} 
+           value={pricePerToken} 
            />
 
            <button 

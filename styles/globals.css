@@ -31,7 +31,7 @@ select {
 }
 
 body {
-  background-image: url(../public/parallax-bg.gif);
+ /* background-image: url(../public/parallax-bg.gif);*/
   width: 100%;
   background-size: cover;
   background-color: #1c1e21;
@@ -41,6 +41,7 @@ body {
   margin: 0;
   text-align: center;
 }
+
 
 h2 {
   font-size: 2rem;

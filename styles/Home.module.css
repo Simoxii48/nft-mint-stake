@@ -4,6 +4,8 @@
   left: 5%;
 }
 
+
+
 .btn {
   background-color: var(--tw-color1);
   outline: none;
@@ -170,37 +172,103 @@
   opacity: 0.8;
 }
 
-.mainButton0:read-only{
-  cursor: default;
-  width: 100%;
-  height: 40px;
-  text-align: center;
-  padding-left: 19px;
-  margin-top: 5px;
+.box {
+  width: 300px;
+  height: 300px;
+  margin-bottom: 15px;
+  position: relative;
+  background: rgba(0, 0, 0, 0.75);
+  border-radius: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.box img {
+  position: relative;
+  z-index: 2;
+  width: 280px;
+  height: 280px;
+  border-radius: 10px;
+}
+
+.box::before{
+  content: '';
+  position: absolute;
+  width: 500px;
+  height: 500px;
+  background-image: conic-gradient(transparent, transparent, transparent, #d400d4);
+  animation: animate 4s linear infinite;
+  animation-delay: -2s;
+}
+
+.box::after{
+  content: '';
+  position: absolute;
+  width: 500px;
+  height: 500px;
+  background-image: conic-gradient(transparent, transparent, transparent, #00ccff);
+  animation: animate 4s linear infinite;
+}
+
+@keyframes animate
+{
+  0%
+  {
+    transform: rotate(0deg);
+  }
+  100%
+  {
+    transform: rotate(360deg);
+  }
+}
+
+.box span {
+  position: absolute;
+  inset: 5px;
+  border-radius: 16px;
+  background: #0c1022;
+  z-index: 1;
+}
+
+
+.mainButton0 {
+cursor: default;
+width: 80px;
+height: 35px;
+text-align: center;
+align-items: center;
+font-family: Arial ;
+margin-top: 5px;
+font-size: 15px;
+}
+
+.mainButton0::-webkit-inner-spin-button,
+.mainButton0::-webkit-outer-spin-button {
+  -webkit-appearance: none;
 }
 
 .mainButton1{
   background-color: #D6517D;
-  border-radius: 5px;
+  border-radius: 50px;
   box-shadow: 0px 2px 2px 1px #0F0F0F;
   color: white;
   cursor: pointer;
   font-family: inherit;
   padding: 10px;
   margin-top: 10px;
-  margin-right: 10px;
 }
 
 .mainButton2{
   background-color: #D6517D;
-  border-radius: 5px;
+  border-radius: 50px;
   box-shadow: 0px 2px 2px 1px #0F0F0F;
   color: white;
   cursor: pointer;
   font-family: inherit;
   padding: 10px;
   margin-top: 10px;
-  margin-left: 10px;
 }
 
 .ourCollection {
@@ -455,9 +523,9 @@ background: linear-gradient(45deg,#b95ce4,#4f29cd) ;
 
 /* Screen less than 630, then hide .center */
 @media only screen and (max-width: 630px) {
-  .center {
+  /*.center {
     display: none;
-  }
+  }*/
 }
 
 .spacerTop {
