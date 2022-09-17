@@ -12,7 +12,7 @@ import { BigNumber, ethers } from "ethers";
 import type { NextPage } from "next";
 import { useEffect, useState } from "react";
 import styles from "../styles/Home.module.css";
-
+import { Box } from "@chakra-ui/react";
 
 
 const nftDropContractAddress = "0x72AA8E6804B58D21140aA550A11316167AF0f8a5";
@@ -114,14 +114,14 @@ const Stake: NextPage = () => {
   return (
     <div className={styles.container}>
       <h1 className={styles.h1}>Stake Your NFTs</h1>
-
       <hr className={`${styles.divider} ${styles.spacerTop}`} />
 
       {!address ? (
         <button className={styles.mainButton} onClick={connectWithMetamask}>
           Connect Wallet
-        </button>
-      ) : (
+        </button> 
+        
+      )  : (
         <>
           <div className={styles.up}>
            <h2>Your Tokens</h2>
@@ -161,8 +161,10 @@ const Stake: NextPage = () => {
               {stakedNfts?.map((nft) => (
 
                 <div className={styles.container2}>
+                  <Box className={styles.box2}>
+                  <span className={styles.spn2}>
+                  </span>
                   <div className={styles.nftBox} key={nft.metadata.id.toString()}> 
-                  <span></span>
                     <ThirdwebNftMedia
                       metadata={nft.metadata}
                       className={styles.nftMedia}
@@ -175,6 +177,7 @@ const Stake: NextPage = () => {
                       Unstake
                     </button>
                   </div>
+                  </Box>
                 </div>
             ))}
           </div>

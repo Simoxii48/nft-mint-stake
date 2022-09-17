@@ -3,9 +3,8 @@ import type { NextPage } from "next";
 import { useRouter } from "next/router";
 import styles from "../styles/Home.module.css";
 import React, { useState } from 'react';
-import { Text, Button, Flex, Input } from "@chakra-ui/react";
-import Image from "next/image";
-import img from '../public/logo.png';
+import { Button, Flex, Input } from "@chakra-ui/react";
+
 
 
 const Mint: NextPage = () => {
