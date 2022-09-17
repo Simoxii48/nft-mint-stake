@@ -1,4 +1,4 @@
-import { useAddress, useMetamask, useNFTDrop } from "@thirdweb-dev/react";
+import { useAddress, useMetamask, useNFTDrop, useDisconnect } from "@thirdweb-dev/react";
 import type { NextPage } from "next";
 import { useRouter } from "next/router";
 import styles from "../styles/Home.module.css";
@@ -15,6 +15,9 @@ const Mint: NextPage = () => {
   // Function to connect to the user's Metamask wallet
   const connectWithMetamask = useMetamask();
 
+  //Function Disconnect Wallet
+  const disconnectWallet = useDisconnect();
+
   // Get the NFT Collection contract
   const nftDropContract = useNFTDrop(
     "0x72AA8E6804B58D21140aA550A11316167AF0f8a5"
@@ -22,7 +25,8 @@ const Mint: NextPage = () => {
 
   // handle decrement and increment Button + -
   const [mintAmount, setMintAmount] = useState(1);
-
+  const [inProgress, setInProgress] = useState(false);
+  
   async function claimNft() {
     try {
       const tx = await nftDropContract?.claim(1);
@@ -32,9 +36,14 @@ const Mint: NextPage = () => {
     } catch (error) {
       console.error(error);
       alert(error);
+      setInProgress(false);
     }
   }
 
+  const startOver = ()=> {
+    setInProgress(false);
+    disconnectWallet();
+  }
   const handleDecrement = () => {
    if(mintAmount <= 1)return;
    setMintAmount(mintAmount - 1);
@@ -46,11 +55,11 @@ const Mint: NextPage = () => {
    }
  
   return (
-    <div className={styles.container}>
+    <div className={styles.container1}>
       <h1 className={styles.h1}>Mint An NFT!</h1>
 
       <p className={styles.explain}>
-        Here is where we use our <b>NFT Drop</b> contract to allow users to mint
+        Here is where we use our <b>NFT Drop contract </b> to allow users to mint
         one of the NFTs that we lazy minted.
       </p>
       <hr className={`${styles.smallDivider} ${styles.detailPageHr}`} />
@@ -64,6 +73,12 @@ const Mint: NextPage = () => {
         </button>
       ) : (
         <>
+        <Button 
+         className={`${styles.mainButton} ${styles.spacerBottom}`}
+         disabled={inProgress}
+         onClick={disconnectWallet}>
+          DISCONNECT
+        </Button>
 
         <Text>Connected</Text>
 
@@ -71,49 +86,29 @@ const Mint: NextPage = () => {
           className={`${styles.mainButton} ${styles.spacerBottom}`}
           onClick={() => claimNft()}
         >
-          Claim An NFT
+          Mint Now
         </button>
 
         <Flex align="center" justify="center">
-           <Button
-           backgroundColor="#D6517D"
-           borderRadius="5px"
-           boxShadow="0px 2px 2px 1px #0F0F0F"
-           color="white"
-           cursor="pointer"
-           fontFamily="inherit"
-           padding="15px"
-           marginTop="10px"
+           <button
+           className={`${styles.mainButton1} ${styles.spacerBottom}`}
            onClick={handleDecrement}
            >
             -
-           </Button>
+           </button>
 
-           <Input 
-           readOnly
-           fontFamily="inherit"
-           width="100px"
-           height="40px"
-           textAlign="center"
-           paddingLeft="19px"
-           marginTop="10px"
+           <input 
+           className={`${styles.mainButton0} ${styles.spacerBottom}`}
            type="number" 
            value={mintAmount} 
            />
 
-           <Button 
-           backgroundColor="#D6517D"
-           borderRadius="5px"
-           boxShadow="0px 2px 2px 1px #0F0F0F"
-           color="white"
-           cursor="pointer"
-           fontFamily="inherit"
-           padding="15px"
-           marginTop="10px"
+           <button 
+           className={`${styles.mainButton2} ${styles.spacerBottom}`}
            onClick={handleIncrement}
            >
            +
-           </Button>
+           </button>
       </Flex>
         </>
       )}
