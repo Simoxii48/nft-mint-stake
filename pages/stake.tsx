@@ -191,12 +191,16 @@ const Stake: NextPage = () => {
             {ownedNfts?.map((nft) => (
 
               <div className={styles.container3}>
+                <Box className={styles.box3}>
+                <span className={styles.spn3}>
+                  </span>
                 <div className={styles.nftBox} key={nft.metadata.id.toString()}>
                 <span></span>
                   <ThirdwebNftMedia
                     metadata={nft.metadata}
                     className={styles.nftMedia}
                   />
+                  <div className={styles.nftBoxInfo1}>
                   <h3>{nft.metadata.name}</h3>
                   <button
                     className={`${styles.mainButton} ${styles.spacerBottom}`}
@@ -204,7 +208,9 @@ const Stake: NextPage = () => {
                   >
                     Stake
                   </button>
+                  </div>
                 </div>
+                </Box>
               </div>
             ))}
           </div>
