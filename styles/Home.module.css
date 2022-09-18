@@ -34,6 +34,11 @@
   margin-bottom: 16px;
 }
 
+.dv {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
 .container {
   margin-top: 40px;
   display: flex;
@@ -192,8 +197,8 @@
 {
   bottom: -50px;
   right: 50px;
-  width: 100px;
-  height: 100px;
+  width: 70px;
+  height: 70px;
   opacity: 1;
 }
 
@@ -760,7 +765,6 @@ font-size: 15px;
 .nftBoxGrid {
   position: relative;
   width: 1080px;
-  height: 400px;
   max-width: 92vw;
   display: flex;
   flex-direction: row-reverse ;
@@ -831,6 +835,7 @@ background: linear-gradient(45deg,#b95ce4,#4f29cd) ;
     width: 49%;
     margin-top: 16px;
   }
+ 
 }
 
 /* beneath 800
@@ -902,6 +907,7 @@ background: linear-gradient(45deg,#b95ce4,#4f29cd) ;
     width: 90%;
     margin-top: 12px;
   }
+ 
 }
 
 /* Screen less than 630, then hide .center */
@@ -909,6 +915,7 @@ background: linear-gradient(45deg,#b95ce4,#4f29cd) ;
   /*.center {
     display: none;
   }*/
+  
 }
 
 .spacerTop {
