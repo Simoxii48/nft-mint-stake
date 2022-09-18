@@ -209,6 +209,19 @@
   }
 }
 
+.box2 .nftBoxInfo {
+  opacity: 0;
+  transform: translateX(60px);
+  transition: 0.5s;
+}
+
+.box2:hover .nftBoxInfo
+{
+  opacity: 1;
+  transform: translateX(0px);
+
+}
+
 .container2 .box2 .nftBox
 {
   position: relative;
@@ -793,6 +806,7 @@ background: linear-gradient(45deg,#b95ce4,#4f29cd) ;
   width: 100%;
   max-height: 300px;
   border-radius: 15px;
+
 }
 
 .amountToClaim {

@@ -169,13 +169,15 @@ const Stake: NextPage = () => {
                       metadata={nft.metadata}
                       className={styles.nftMedia}
                     />
-                    <h3>{nft.metadata.name}</h3>
-                    <button
-                      className={`${styles.mainButton} ${styles.spacerBottom}`}
-                      onClick={() => withdraw(nft.metadata.id)}
-                    >
-                      Unstake
-                    </button>
+                   <div className={styles.nftBoxInfo}>
+                     <h3>{nft.metadata.name}</h3>
+                     <button
+                       className={`${styles.mainButton} ${styles.spacerBottom}`}
+                       onClick={() => withdraw(nft.metadata.id)}
+                     >
+                       Unstake
+                     </button>
+                    </div>
                   </div>
                   </Box>
                 </div>
