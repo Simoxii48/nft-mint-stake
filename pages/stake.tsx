@@ -37,6 +37,7 @@ const Stake: NextPage = () => {
 
   // Load Balance of Token
   const { data: tokenBalance } = useTokenBalance(tokenContract, address);
+  
 
   ///////////////////////////////////////////////////////////////////////////
   // Custom contract functions
@@ -221,5 +222,23 @@ const Stake: NextPage = () => {
     </div>
   );
 };
+
+
+/*
+export declare function useTokenBalance(
+  contract:  ,
+  walletAddress: undefined ,
+): import("@tanstack/react-query").UseQueryResult<
+  {
+    symbol:"TSC";
+    name: "Testcoin";
+    value: import("ethers").BigNumber;
+    decimals: 18;
+    displayValue: "0xf01756732E811a625f16F92465C8A395562d54a9";
+  },
+  unknown
+>;
+*/
+
 
 export default Stake;
