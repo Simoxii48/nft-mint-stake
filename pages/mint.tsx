@@ -25,7 +25,7 @@ const Mint: NextPage = () => {
   );
 
   // handle decrement and increment Button + -
-  const [pricePerToken, setPricePerToken] = useState(1);
+  const [mintAmount, setMintAmount] = useState(1);
   const [inProgress, setInProgress] = useState(false);
   
   async function claimNft() {
@@ -46,13 +46,13 @@ const Mint: NextPage = () => {
     disconnectWallet();
   }
   const handleDecrement = () => {
-   if(pricePerToken <= 1)return;
-   setPricePerToken(pricePerToken - 1);
+   if(mintAmount <= 1)return;
+   setMintAmount(mintAmount - 1);
   }
 
   const handleIncrement = () => {
-    if(pricePerToken >= 10)return;
-    setPricePerToken(pricePerToken + 1);
+    if(mintAmount >= 10)return;
+    setMintAmount(mintAmount + 1);
    }
  
   return (
@@ -106,7 +106,7 @@ const Mint: NextPage = () => {
            <Input 
            className={`${styles.mainButton0} ${styles.spacerBottom}`}
            type="number" 
-           value={pricePerToken} 
+           value={mintAmount} 
            />
 
            <button 
